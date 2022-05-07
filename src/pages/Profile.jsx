@@ -1,12 +1,25 @@
+import React from 'react'
 import { useState, useEffect } from 'react'
 import { getAuth, updateProfile } from 'firebase/auth'
-import { updateDoc, doc } from 'firebase/firestore'
+import {
+  updateDoc,
+  doc,
+  collection,
+  getDocs,
+  query,
+  where,
+  orderBy,
+  deleteDoc,
+} from 'firebase/firestore'
 import { db } from '../firebase.config'
-import { useNavigate, Link } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 import { toast } from 'react-toastify'
+import ChallengeItem from '../components/ChallengeItem'
 
 function Profile() {
   const auth = getAuth()
+  const [loading, setLoading] = useState(true)
+  const [challenges, setChallenges] = useState(null)
   const [changeDetails, setChangeDetails] = useState(false)
   const [formData, setFormData] = useState({
     name: auth.currentUser.displayName,
@@ -16,6 +29,34 @@ function Profile() {
   const { name, email } = formData
 
   const navigate = useNavigate()
+
+  useEffect(() => {
+    const fetchUserChallenges = async () => {
+      const challengesRef = collection(db, 'challenges')
+
+      const q = query(
+        challengesRef,
+        where('userRef', '==', auth.currentUser.uid),
+        orderBy('timestamp', 'desc')
+      )
+
+      const querySnap = await getDocs(q)
+
+      let challenges = []
+
+      querySnap.forEach((doc) => {
+        return challenges.push({
+          id: doc.id,
+          data: doc.data(),
+        })
+      })
+
+      setChallenges(challenges)
+      setLoading(false)
+    }
+
+    fetchUserChallenges()
+  }, [auth.currentUser.uid])
 
   const onLogout = () => {
     auth.signOut()
@@ -47,6 +88,19 @@ function Profile() {
       [e.target.id]: e.target.value,
     }))
   }
+
+  const onDelete = async (challengeId) => {
+    if (window.confirm('Are you sure you want to delete?')) {
+      await deleteDoc(doc(db, 'challenges', challengeId))
+      const updatedChallenges = challenges.filter(
+        (challenge) => challenge.id !== challengeId
+      )
+      setChallenges(updatedChallenges)
+      toast.success('Successfully deleted challenge')
+    }
+  }
+
+  const onEdit = (challengeId) => navigate(`/edit-challenge/${challengeId}`)
 
   return (
     <div className='profile'>
@@ -90,7 +144,26 @@ function Profile() {
               onChange={onChange}
             />
           </form>
+          
         </div>
+
+        
+        {!loading && challenges?.length > 0 && (
+          <>
+            <p className='challengesText'>Your Challenges</p>
+            <ul className='challengesList'>
+              {challenges.map((challenge) => (
+                <ChallengeItem
+                  key={challenge.id}
+                  challenge={challenge.data}
+                  id={challenge.id}
+                  onDelete={() => onDelete(challenge.id)}
+                  onEdit={() => onEdit(challenge.id)}
+                />
+              ))}
+            </ul>
+          </>
+        )}
       </main>
     </div>
   )

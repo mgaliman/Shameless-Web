@@ -1,3 +1,4 @@
+import React from 'react'
 import { useNavigate, useLocation } from 'react-router-dom'
 import { ReactComponent as OfferIcon } from '../assets/svg/plus.svg'
 import { ReactComponent as ExploreIcon } from '../assets/svg/exploreIcon.svg'
@@ -33,15 +34,15 @@ function Navbar() {
               Explore
             </p>
           </li>
-          <li className='navbarListItem' onClick={() => navigate('/create')}>
+          <li className='navbarListItem' onClick={() => navigate('/create-challenge')}>
             <OfferIcon
-              fill={pathMatchRoute('/create') ? '#2c2c2c' : '#8f8f8f'}
+              fill={pathMatchRoute('/create-challenge') ? '#2c2c2c' : '#8f8f8f'}
               width='36px'
               height='35px'
             />
             <p
               className={
-                pathMatchRoute('/create')
+                pathMatchRoute('/create-challenge')
                   ? 'navbarListItemNameActive'
                   : 'navbarListItemName'
               }

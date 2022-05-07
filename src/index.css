@@ -1,5 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700;800;900&display=swap');
-
 * {
   box-sizing: border-box;
 }
@@ -42,9 +41,7 @@ button {
   padding: 0 3rem;
   font-size: 1rem;
 }
-
 @media (min-width: 1100px) {
-
   .input,
   .passwordInput,
   .emailInput,
@@ -54,21 +51,54 @@ button {
   }
 }
 
+.textarea {
+  padding: 1rem 1.5rem;
+  height: 300px;
+  border-radius: 1rem;
+}
+
+.primaryButton {
+  cursor: pointer;
+  background: #00cc66;
+  border-radius: 1rem;
+  padding: 0.85rem 2rem;
+  color: #ffffff;
+  font-weight: 600;
+  font-size: 1.25rem;
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.removeIcon {
+  cursor: pointer;
+  position: absolute;
+  top: -3%;
+  right: -2%;
+}
+
+.editIcon {
+  cursor: pointer;
+  position: absolute;
+  top: -3.4%;
+  right: 20px;
+}
+
 .pageContainer,
-.offers,
+.create,
 .profile,
-.listingDetails,
+.challengeDetails,
 .category,
 .explore {
   margin: 1rem;
 }
-
 @media (min-width: 1024px) {
-
   .pageContainer,
-  .offers,
+  .create,
   .profile,
-  .listingDetails,
+  .challengeDetails,
   .category,
   .explore {
     margin: 3rem;
@@ -96,12 +126,10 @@ button {
   border-radius: 50%;
   animation: spin 1.2s linear infinite;
 }
-
 @keyframes spin {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
@@ -153,7 +181,6 @@ button {
   font-weight: 600;
   color: #8f8f8f;
 }
-
 .navbarListItemNameActive {
   color: #2c2c2c;
 }
@@ -207,9 +234,7 @@ button {
 .signUpText {
   cursor: pointer;
 }
-
 @media (min-width: 1024px) {
-
   .signInBar,
   .signUpBar {
     justify-content: start;
@@ -232,9 +257,7 @@ button {
   background-color: #00cc66;
   border-radius: 50%;
 }
-
 @media (min-width: 1024px) {
-
   .signInButton,
   .signUpButton {
     margin-left: 3rem;
@@ -275,15 +298,306 @@ button {
 }
 
 @media (min-width: 1217px) {
-  .create {
+  .explore {
+    margin-bottom: 10rem;
+  }
+}
+@media (max-height: 536) {
+  .explore {
     margin-bottom: 10rem;
   }
 }
 
-@media (max-height: 536) {
-  .create {
-    margin-bottom: 10rem;
+.exploreHeading,
+.exploreCategoryHeading {
+  font-weight: 700;
+}
+
+.exploreCategoryHeading {
+  margin-top: 3rem;
+}
+
+.swiper-container {
+  min-height: 225px;
+  height: 23vw;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ffffff !important;
+}
+
+.swiperSlideDiv {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.swiperSlideImg {
+  width: 100%;
+  object-fit: cover;
+}
+
+.swiperSlideText {
+  color: #ffffff;
+  position: absolute;
+  top: 70px;
+  left: 0;
+  font-weight: 600;
+  max-width: 90%;
+  font-size: 1.25rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  padding: 0.5rem;
+}
+@media (min-width: 1024px) {
+  .swiperSlideText {
+    font-size: 1.75rem;
   }
+}
+
+.swiperSlidePoints {
+  color: #000000;
+  position: absolute;
+  top: 143px;
+  left: 11px;
+  font-weight: 600;
+  max-width: 90%;
+  background-color: #ffffff;
+  padding: 0.25rem 0.5rem;
+  border-radius: 1rem;
+}
+@media (min-width: 1024px) {
+  .swiperSlidePoints {
+    font-size: 1.25rem;
+  }
+}
+
+.exploreCategories {
+  display: flex;
+  justify-content: space-between;
+}
+.exploreCategories a {
+  width: 48%;
+}
+
+.exploreCategoryImg {
+  min-height: 115px;
+  height: 15vw;
+  width: 100%;
+  border-radius: 1.5rem;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.exploreCategoryName {
+  font-weight: 500;
+  text-align: left;
+}
+
+.category {
+  margin-bottom: 10rem;
+}
+
+.categoryChallenges {
+  padding: 0;
+}
+
+.categoryChallenge {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+  position: relative;
+}
+
+.categoryChallengeLink {
+  display: contents;
+}
+
+.categoryChallengeImg {
+  width: 30%;
+  height: 100px;
+  border-radius: 1.5rem;
+  object-fit: cover;
+}
+@media (min-width: 1024px) {
+  .categoryChallengeImg {
+    width: 19%;
+    height: 217px;
+  }
+}
+
+.categoryChallengeDetails {
+  width: 65%;
+}
+@media (min-width: 1024px) {
+  .categoryChallengeDetails {
+    width: 79%;
+  }
+}
+
+.categoryChallengeLocation {
+  font-weight: 600;
+  font-size: 0.7rem;
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+.categoryChallengeName {
+  font-weight: 600;
+  font-size: 1.25rem;
+  margin: 0;
+}
+
+.categoryChallengePoints {
+  margin-top: 0.5rem;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #00cc66;
+  margin-bottom: 0;
+  display: flex;
+  align-items: center;
+}
+
+.categoryChallengeInfoDiv {
+  display: flex;
+  justify-content: space-between;
+  max-width: 275px;
+}
+
+.categoryChallengeInfoText {
+  font-weight: 500;
+  font-size: 0.7rem;
+}
+
+.loadMore {
+  cursor: pointer;
+  width: 8rem;
+  margin: 0 auto;
+  text-align: center;
+  padding: 0.25rem 0.5rem;
+  background-color: #000000;
+  color: #ffffff;
+  font-weight: 600;
+  border-radius: 1rem;
+  opacity: 0.7;
+  margin-top: 2rem;
+}
+
+.challengeDetails {
+  margin-bottom: 10rem;
+}
+
+.shareIconDiv {
+  cursor: pointer;
+  position: fixed;
+  top: 3%;
+  right: 5%;
+  z-index: 2;
+  background-color: #ffffff;
+  border-radius: 50%;
+  width: 3rem;
+  height: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.challengeName {
+  font-weight: 600;
+  font-size: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.challengeLocation {
+  margin-top: 0;
+  font-weight: 600;
+}
+
+.challengeType {
+  padding: 0.25rem 0.5rem;
+  background-color: #00cc66;
+  color: #ffffff;
+  border-radius: 2rem;
+  display: inline;
+  font-weight: 600;
+  font-size: 0.8rem;
+  margin-right: 1rem;
+}
+
+.challengeDetailsList {
+  padding: 0;
+  list-style-type: none;
+}
+.challengeDetailsList li {
+  margin: 0.3rem 0;
+  font-weight: 500;
+  opacity: 0.8;
+}
+
+.challengeLocationTitle {
+  margin-top: 2rem;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.leafletContainer {
+  width: 100%;
+  height: 200px;
+  overflow-x: hidden;
+  margin-bottom: 3rem;
+}
+@media (min-width: 1024px) {
+  .leafletContainer {
+    height: 400px;
+  }
+}
+
+.linkCopied {
+  position: fixed;
+  top: 9%;
+  right: 5%;
+  z-index: 2;
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 0.5rem 1rem;
+  font-weight: 600;
+}
+
+.contactChallengeName {
+  margin-top: -1rem;
+  margin-bottom: 0;
+  font-weight: 600;
+}
+
+.contactChallengeLocation {
+  margin-top: 0.25rem;
+  font-weight: 600;
+}
+
+.contactChallengeCreator {
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+}
+
+.challengeCreatorName {
+  font-weight: 600;
+  font-size: 1.2rem;
+}
+
+.messageForm {
+  margin-top: 0.5rem;
+}
+
+.messageDiv {
+  margin-top: 2rem;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 4rem;
+}
+
+.messageLabel {
+  margin-bottom: 0.5rem;
 }
 
 .profile {
@@ -310,6 +624,7 @@ button {
 .profileDetailsHeader {
   display: flex;
   justify-content: space-between;
+  max-width: 500px;
 }
 
 .personalDetailsText {
@@ -327,6 +642,7 @@ button {
   border-radius: 1rem;
   padding: 1rem;
   box-shadow: rgba(0, 0, 0, 0.2);
+  max-width: 500px;
 }
 
 .profileDetails {
@@ -345,7 +661,6 @@ button {
   font-weight: 600;
   width: 100%;
 }
-
 .profileNameActive {
   background-color: rgba(44, 44, 44, 0.1);
 }
@@ -356,11 +671,142 @@ button {
 .profileEmailActive {
   font-weight: 500;
 }
-
 .profileEmailActive {
   background-color: rgba(44, 44, 44, 0.1);
 }
 
 .profileAddressActive {
   background-color: rgba(44, 44, 44, 0.1);
+}
+
+.createChallenge {
+  background-color: #ffffff;
+  border-radius: 1rem;
+  padding: 0.25rem 1rem;
+  box-shadow: rgba(0, 0, 0, 0.2);
+  margin-top: 2rem;
+  font-weight: 600;
+  max-width: 500px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.challengeText {
+  margin-top: 3rem;
+  font-weight: 600;
+}
+
+.challengesList {
+  padding: 0;
+}
+
+.formLabel {
+  font-weight: 600;
+  margin-top: 1rem;
+  display: block;
+}
+
+.formButtons {
+  display: flex;
+}
+
+.formButton,
+.formInput,
+.formInputAddress,
+.formInputName,
+.formInputSmall,
+.formInputFile,
+.formButtonActive {
+  padding: 0.9rem 3rem;
+  background-color: #ffffff;
+  font-weight: 600;
+  border-radius: 1rem;
+  font-size: 1rem;
+  margin: 0.5rem 0.5rem 0 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.formButtonActive {
+  background-color: #00cc66;
+  color: #ffffff;
+}
+
+.flex {
+  display: flex;
+}
+
+.formInput,
+.formInputAddress,
+.formInputName,
+.formInputSmall,
+.formInputFile {
+  border: none;
+  outline: none;
+  font-family: 'Montserrat', sans-serif;
+}
+.formInputSmall,
+.formInputFile {
+  margin-right: 3rem;
+  padding: 0.9rem 0.7rem;
+  text-align: center;
+}
+
+.formInputName {
+  padding: 0.9rem 1rem;
+  width: 90%;
+  max-width: 326px;
+}
+
+.formInputAddress {
+  padding: 0.9rem 1rem;
+  width: 90%;
+  max-width: 326px;
+}
+
+.formPointsDiv {
+  display: flex;
+  align-items: center;
+}
+
+.formPointsText {
+  margin-left: -1.5rem;
+  font-weight: 600;
+}
+
+.imagesInfo {
+  font-size: 0.9rem;
+  opacity: 0.75;
+}
+
+.formInputFile {
+  width: 100%;
+}
+.formInputFile::-webkit-file-upload-button {
+  background-color: #00cc66;
+  border: none;
+  color: #ffffff;
+  font-weight: 600;
+  padding: 0.5rem 0.75rem;
+  border-radius: 1rem;
+  margin-right: 1rem;
+}
+
+.createChallengeButton {
+  margin-top: 5rem;
+}
+
+.create {
+  margin-bottom: 10rem;
+}
+
+.createBadge {
+  padding: 0.25rem 0.5rem;
+  background-color: #000000;
+  color: #ffffff;
+  border-radius: 1rem;
+  margin-left: 1rem;
+  font-size: 0.8rem;
+  opacity: 0.75;
 }
