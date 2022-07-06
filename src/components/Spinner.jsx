@@ -2,8 +2,8 @@ import React from 'react'
 
 function Spinner() {
   return (
-    <div className='loadingSpinnerContainer'>
-      <div className='loadingSpinner'></div>
+    <div className='loadingSpinnerContainer' data-testid='spinnerContainerTest'>
+      <div className='loadingSpinner' data-testid='loadingSpinnerTest'></div>
     </div>
   )
 }

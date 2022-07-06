@@ -126,7 +126,7 @@ function Profile() {
         </div>
 
         <div className='profileCard'>
-          <form>
+          <form>           
             <input
               type='text'
               id='name'
